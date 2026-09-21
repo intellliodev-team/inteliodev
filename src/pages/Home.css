@@ -1,0 +1,384 @@
+/* src/pages/Home.css — Intelliodev.io · Cream + Burgundy */
+
+:root {
+  --primary: #990011;
+  --primary-light: #B7283A;
+  --primary-dark: #7A000D;
+
+  --background: #FCF6F5;
+  --accent-bg: #F8E8E9;
+  --white: #FFFFFF;
+
+  --text: #24181A;
+  --text-soft: #5A4A4D;
+  --text-muted: #8B7679;
+
+  --border-soft: rgba(153, 0, 17, 0.12);
+  --border-medium: rgba(153, 0, 17, 0.22);
+
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ============================================================
+   HOME CONTAINER — NO FIXED HEIGHT
+   Yeh fix: 100vh + overflow-y: scroll hataye
+   Ab natural height hai, footer ke upar gap nahi aayega
+   ============================================================ */
+.home-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #FCF6F5;
+  color: #24181A;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+.home-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* ============================================================
+   SHARED UTILITIES
+   ============================================================ */
+.text-center {
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-soft);
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+.section-action {
+  margin-top: 2.5rem;
+}
+
+.section-pre-pill-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+}
+
+.section-pre-pill {
+  background-color: var(--accent-bg);
+  color: var(--primary);
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border: 1px solid var(--border-soft);
+  text-transform: uppercase;
+}
+
+.highlight-projects {
+  color: var(--primary);
+}
+
+.section-title-underline-yellow {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-light));
+  margin: 0.75rem auto 1.5rem auto;
+  border-radius: 2px;
+  box-shadow: 0 0 12px rgba(153, 0, 17, 0.35);
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  font-size: 0.95rem;
+  border-radius: 30px;
+  border: 1.5px solid var(--primary);
+  background-color: transparent;
+  color: var(--primary);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.35s var(--ease-smooth);
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: var(--white);
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px -8px rgba(153, 0, 17, 0.5);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 40px;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 40px;
+  border: none;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: var(--white);
+  cursor: pointer;
+  transition: all 0.4s var(--ease-smooth);
+  box-shadow: 0 8px 24px -6px rgba(153, 0, 17, 0.45),
+    0 0 40px rgba(183, 40, 58, 0.15);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transform: skewX(-25deg);
+  animation: btnShine 3s infinite;
+  z-index: 1;
+}
+
+@keyframes btnShine {
+  0% {
+    left: -120%;
+  }
+  100% {
+    left: 220%;
+  }
+}
+
+.btn-primary > * {
+  position: relative;
+  z-index: 2;
+}
+
+.btn-primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 36px -10px rgba(153, 0, 17, 0.6),
+    0 0 60px rgba(183, 40, 58, 0.3);
+}
+
+/* ============================================================
+   CONTAINER
+   ============================================================ */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ============================================================
+   SCROLL TO TOP
+   ============================================================ */
+.scroll-top-enter {
+  animation: scrollToTop 0.8s var(--ease-smooth) forwards;
+}
+
+@keyframes scrollToTop {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================
+   LOADING SPINNER — burgundy
+   ============================================================ */
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 0;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(153, 0, 17, 0.12);
+  border-top-color: var(--primary);
+  border-right-color: var(--primary-light);
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+  box-shadow: 0 0 24px rgba(153, 0, 17, 0.15);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================================
+   ERROR CONTAINER — modern card
+   ============================================================ */
+.error-container {
+  position: relative;
+  background: rgba(248, 232, 233, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-medium);
+  border-radius: 24px;
+  margin: 4rem auto;
+  max-width: 560px;
+  padding: 3rem 2rem;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0 20px 50px -22px rgba(153, 0, 17, 0.2),
+    0 0 60px rgba(153, 0, 17, 0.06);
+  animation: errorFadeIn 0.6s var(--ease-smooth);
+}
+
+@keyframes errorFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.error-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--primary),
+    var(--primary-light),
+    transparent
+  );
+}
+
+.error-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+  animation: errorPulse 2s ease-in-out infinite;
+  filter: drop-shadow(0 6px 20px rgba(153, 0, 17, 0.3));
+}
+
+@keyframes errorPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.85;
+  }
+}
+
+.error-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.error-message {
+  color: var(--text-soft);
+  max-width: 420px;
+  margin: 0 auto 2rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+  .section-subtitle {
+    font-size: 1rem;
+  }
+  .btn-primary {
+    padding: 14px 32px;
+    font-size: 0.95rem;
+  }
+  .btn-secondary {
+    padding: 10px 24px;
+    font-size: 0.9rem;
+  }
+  .error-container {
+    margin: 3rem 1rem;
+    padding: 2rem 1.5rem;
+  }
+  .error-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.65rem;
+  }
+  .section-subtitle {
+    font-size: 0.95rem;
+  }
+  .error-icon {
+    font-size: 2.75rem;
+  }
+  .error-title {
+    font-size: 1.3rem;
+  }
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .btn-primary::before,
+  .error-icon {
+    animation: none !important;
+  }
+  .btn-primary,
+  .btn-secondary {
+    transition: none !important;
+    transform: none !important;
+  }
+  .btn-primary:hover,
+  .btn-secondary:hover {
+    transform: none !important;
+  }
+}

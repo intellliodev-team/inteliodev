@@ -1,0 +1,865 @@
+/* Proof.css — Intelliodev.io · Modern Cream + Burgundy */
+
+:root {
+  --primary: #990011;
+  --primary-light: #B7283A;
+  --primary-dark: #7A000D;
+
+  --background: #FCF6F5;
+  --accent-bg: #F8E8E9;
+  --white: #FFFFFF;
+
+  --text: #24181A;
+  --text-soft: #5A4A4D;
+  --text-muted: #8B7679;
+
+  --border-soft: rgba(153, 0, 17, 0.12);
+  --border-medium: rgba(153, 0, 17, 0.22);
+
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* ============================================
+   SECTION
+   ============================================ */
+.proof-section {
+  position: relative;
+  padding: 3.5rem 1.5rem 3rem;
+  background: radial-gradient(
+    ellipse 80% 60% at 50% 0%,
+    #fff8f7 0%,
+    #fcf6f5 45%,
+    #f8e8e9 100%
+  );
+  color: var(--text);
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, sans-serif;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* ============================================
+   BACKGROUND
+   ============================================ */
+.proof-bg-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.proof-aurora {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+}
+
+.proof-aurora-1 {
+  width: 600px;
+  height: 600px;
+  top: -240px;
+  left: -140px;
+  background: radial-gradient(circle, rgba(153, 0, 17, 0.28), transparent 70%);
+  opacity: 0.55;
+  animation: aurora1 18s ease-in-out infinite;
+}
+
+.proof-aurora-2 {
+  width: 500px;
+  height: 500px;
+  bottom: -200px;
+  right: -120px;
+  background: radial-gradient(circle, rgba(183, 40, 58, 0.22), transparent 70%);
+  opacity: 0.45;
+  animation: aurora2 22s ease-in-out infinite;
+}
+
+@keyframes aurora1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(60px, 40px) scale(1.15); }
+}
+@keyframes aurora2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(-70px, -50px) scale(1.12); }
+}
+
+.proof-grid {
+  position: absolute;
+  inset: -50%;
+  background-image:
+    linear-gradient(rgba(153, 0, 17, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(153, 0, 17, 0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+  transform: perspective(700px) rotateX(58deg);
+  transform-origin: center;
+  animation: gridShift 28s linear infinite;
+  mask-image: radial-gradient(ellipse at 50% 40%, black 15%, transparent 65%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 40%, black 15%, transparent 65%);
+}
+
+@keyframes gridShift {
+  0%   { background-position: 0 0; }
+  100% { background-position: 0 60px; }
+}
+
+.proof-spotlight {
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1100px;
+  height: 800px;
+  background: radial-gradient(
+    circle,
+    rgba(153, 0, 17, 0.08) 0%,
+    rgba(183, 40, 58, 0.03) 40%,
+    transparent 70%
+  );
+  animation: spotPulse 10s ease-in-out infinite;
+}
+
+@keyframes spotPulse {
+  0%, 100% { opacity: 0.4; transform: translateX(-50%) scale(1); }
+  50%      { opacity: 0.85; transform: translateX(-50%) scale(1.08); }
+}
+
+.proof-dots {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.proof-dot {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px currentColor;
+  opacity: 0;
+  animation-name: dotFloat;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes dotFloat {
+  0%   { opacity: 0; transform: translateY(0) scale(0.8); }
+  40%  { opacity: 0.7; }
+  100% { opacity: 0; transform: translateY(-140px) scale(1.3); }
+}
+
+/* ============================================
+   CONTAINER
+   ============================================ */
+.proof-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 5;
+}
+
+/* ============================================
+   EYEBROW ROW
+   ============================================ */
+.proof-eyebrow-row {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.proof-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(248, 232, 233, 0.85);
+  color: var(--primary);
+  padding: 0.5rem 1.4rem;
+  border-radius: 50px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border: 1px solid var(--border-medium);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 0 24px rgba(153, 0, 17, 0.15);
+}
+
+.eyebrow-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 12px var(--primary);
+  animation: dotPulse 1.8s ease-in-out infinite;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes dotPulse {
+  0%, 100% { transform: scale(0.9); opacity: 1; }
+  50%      { transform: scale(1.4); opacity: 0.6; }
+}
+
+.eyebrow-shine {
+  position: absolute;
+  inset: 0;
+  border-radius: 50px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(183, 40, 58, 0.2),
+    transparent
+  );
+  animation: shine 3s ease-in-out infinite;
+}
+
+@keyframes shine {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.proof-eyebrow-line {
+  flex: 1;
+  height: 1px;
+  min-width: 40px;
+  background: linear-gradient(90deg, rgba(153, 0, 17, 0.4), transparent);
+}
+
+.proof-eyebrow-meta {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* ============================================
+   SPLIT HERO
+   ============================================ */
+.proof-split {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 3rem;
+  align-items: start;
+  margin-bottom: 2.75rem;
+}
+
+.proof-left {
+  position: relative;
+}
+
+.proof-headline {
+  font-size: clamp(2rem, 4.2vw, 3.25rem);
+  font-weight: 900;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  color: var(--text);
+  margin: 0 0 1.4rem;
+}
+
+.hl-primary {
+  background: linear-gradient(
+    120deg,
+    var(--primary),
+    var(--primary-light) 60%,
+    var(--primary)
+  );
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 5s ease-in-out infinite;
+  font-style: italic;
+  font-weight: 900;
+}
+
+.hl-light {
+  background: linear-gradient(
+    120deg,
+    var(--primary-light),
+    #d14a5c 60%,
+    var(--primary-light)
+  );
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 5s ease-in-out infinite;
+  font-style: italic;
+  font-weight: 900;
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+
+.proof-lede {
+  font-size: 0.98rem;
+  line-height: 1.8;
+  color: var(--text-soft);
+  font-weight: 400;
+  max-width: 520px;
+  margin: 0 0 2rem;
+}
+
+/* ============================================
+   METRICS
+   ============================================ */
+.proof-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.15rem;
+}
+
+.proof-metric {
+  position: relative;
+  padding: 1.35rem 1.25rem;
+  border-radius: 16px;
+  background: linear-gradient(155deg, #ffffff 0%, #fffbfa 55%, #fcf6f5 100%);
+  border: 1px solid var(--border-soft);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  overflow: hidden;
+  box-shadow: 0 10px 30px -16px rgba(153, 0, 17, 0.15);
+  transition: all 0.5s var(--ease-smooth);
+}
+
+.proof-metric::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  opacity: 0.6;
+  transition: opacity 0.4s ease;
+}
+
+.proof-metric.metric-light::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--primary-light),
+    transparent
+  );
+}
+
+.proof-metric:hover {
+  border-color: var(--border-medium);
+  transform: translateY(-4px);
+  box-shadow: 0 22px 44px -18px rgba(153, 0, 17, 0.3),
+    0 0 40px rgba(153, 0, 17, 0.1);
+}
+
+.proof-metric.metric-light:hover {
+  box-shadow: 0 22px 44px -18px rgba(183, 40, 58, 0.3),
+    0 0 40px rgba(183, 40, 58, 0.1);
+}
+
+.metric-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: rgba(153, 0, 17, 0.1);
+  border: 1px solid rgba(153, 0, 17, 0.22);
+  color: var(--primary);
+  margin-bottom: 0.85rem;
+}
+
+.metric-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.metric-light .metric-icon {
+  background: rgba(183, 40, 58, 0.1);
+  border-color: rgba(183, 40, 58, 0.25);
+  color: var(--primary-light);
+}
+
+.metric-value-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.2rem;
+  line-height: 1;
+  margin-bottom: 0.45rem;
+}
+
+.metric-value {
+  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, var(--text), var(--primary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.metric-light .metric-value {
+  background: linear-gradient(135deg, var(--text), var(--primary-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.metric-suffix {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.metric-light .metric-suffix {
+  color: var(--primary-light);
+}
+
+.metric-label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.metric-id {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.95rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: rgba(153, 0, 17, 0.15);
+}
+
+/* ============================================
+   RIGHT PILLARS
+   ============================================ */
+.proof-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+.pillar-card {
+  position: relative;
+  padding: 1.75rem 1.6rem;
+  border-radius: 20px;
+  background: linear-gradient(155deg, #ffffff 0%, #fffbfa 55%, #fcf6f5 100%);
+  border: 1px solid var(--border-soft);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  overflow: hidden;
+  box-shadow: 0 12px 32px -18px rgba(153, 0, 17, 0.18);
+  transition: all 0.5s var(--ease-smooth);
+}
+
+.pillar-card:hover {
+  border-color: var(--border-medium);
+  box-shadow: 0 26px 54px -24px rgba(153, 0, 17, 0.32),
+    0 0 50px rgba(153, 0, 17, 0.1);
+}
+
+.pillar-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 30% 0%,
+    rgba(153, 0, 17, 0.1),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.pillar-card:hover .pillar-glow {
+  opacity: 1;
+}
+
+.pillar-corner {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 1.5px solid var(--primary);
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+}
+
+.pillar-tl {
+  top: 12px;
+  left: 12px;
+  border-right: none;
+  border-bottom: none;
+  border-top-left-radius: 6px;
+  transform: translate(-4px, -4px);
+}
+.pillar-br {
+  bottom: 12px;
+  right: 12px;
+  border-left: none;
+  border-top: none;
+  border-bottom-right-radius: 6px;
+  transform: translate(4px, 4px);
+}
+
+.pillar-card:hover .pillar-corner {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.pillar-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.15rem;
+}
+
+.pillar-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 26%;
+  background: rgba(153, 0, 17, 0.1);
+  border: 1px solid rgba(153, 0, 17, 0.22);
+  color: var(--primary);
+  transition: all 0.4s ease;
+}
+
+.pillar-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.pillar-card:hover .pillar-icon {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: var(--white);
+  box-shadow: 0 0 28px rgba(153, 0, 17, 0.5);
+  transform: rotate(-6deg) scale(1.06);
+}
+
+.pillar-tag {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--primary);
+  padding: 0.35rem 0.75rem;
+  border-radius: 50px;
+  background: rgba(248, 232, 233, 0.8);
+  border: 1px solid var(--border-soft);
+}
+
+.pillar-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin: 0 0 0.55rem;
+  line-height: 1.25;
+}
+
+.pillar-body {
+  font-size: 0.9rem;
+  color: var(--text-soft);
+  line-height: 1.6;
+  margin: 0 0 1.1rem;
+  font-weight: 400;
+}
+
+.pillar-points {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.pillar-points li {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  font-weight: 500;
+}
+
+.point-bullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary-light);
+  box-shadow: 0 0 8px var(--primary-light);
+  flex-shrink: 0;
+}
+
+/* ============================================
+   RIBBON
+   ============================================ */
+.proof-ribbon {
+  position: relative;
+  padding: 1.4rem 1.6rem;
+  border-radius: 20px;
+  background: linear-gradient(
+    120deg,
+    rgba(248, 232, 233, 0.85),
+    rgba(252, 246, 245, 0.95)
+  );
+  border: 1px solid var(--border-medium);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 20px 50px -20px rgba(153, 0, 17, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.ribbon-track {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.ribbon-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex: 1;
+  min-width: 160px;
+}
+
+.ribbon-step {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--primary);
+  padding: 0.35rem 0.7rem;
+  border-radius: 50px;
+  background: rgba(248, 232, 233, 0.9);
+  border: 1px solid var(--border-medium);
+  flex-shrink: 0;
+}
+
+.ribbon-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  line-height: 1.2;
+}
+
+.ribbon-label {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.ribbon-sub {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.ribbon-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(153, 0, 17, 0.5);
+  flex-shrink: 0;
+}
+
+.ribbon-shine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 30%,
+    rgba(183, 40, 58, 0.08) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  animation: ribbonShine 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes ribbonShine {
+  0%, 100% { transform: translateX(-100%); }
+  50%      { transform: translateX(100%); }
+}
+
+/* ============================================
+   SIGNATURE
+   ============================================ */
+.proof-signature {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 1rem 0 0.4rem;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.signature-spark {
+  display: inline-flex;
+  align-items: center;
+  color: var(--primary-light);
+  animation: sparkSpin 6s linear infinite;
+}
+
+@keyframes sparkSpin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.signature-text {
+  color: var(--text-soft);
+  font-size: 0.86rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.signature-mark {
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  padding-left: 0.8rem;
+  border-left: 1px solid var(--border-medium);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+  .proof-section {
+    padding: 3rem 1.25rem 2.75rem;
+  }
+  .proof-split {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .proof-section {
+    padding: 2.75rem 1rem 2.5rem;
+  }
+  .proof-headline {
+    font-size: clamp(1.7rem, 6.5vw, 2.2rem);
+  }
+  .proof-lede {
+    font-size: 0.9rem;
+  }
+  .proof-metrics {
+    grid-template-columns: 1fr;
+  }
+  .ribbon-track {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .ribbon-arrow {
+    display: none;
+  }
+  .ribbon-item {
+    min-width: unset;
+  }
+  .proof-aurora-1,
+  .proof-aurora-2 {
+    display: none;
+  }
+  .proof-spotlight {
+    width: 600px;
+    height: 500px;
+  }
+  .proof-grid {
+    background-size: 50px 50px;
+  }
+  .proof-eyebrow-meta {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .proof-section {
+    padding: 2.25rem 0.75rem 2rem;
+  }
+  .proof-eyebrow {
+    font-size: 0.6rem;
+    padding: 0.4rem 1.1rem;
+  }
+  .proof-headline {
+    font-size: 1.55rem;
+  }
+  .pillar-card {
+    padding: 1.4rem 1.2rem;
+  }
+  .pillar-title {
+    font-size: 1.1rem;
+  }
+  .proof-ribbon {
+    padding: 1.2rem;
+  }
+  .signature-text {
+    font-size: 0.76rem;
+  }
+  .signature-mark {
+    font-size: 0.7rem;
+    padding-left: 0.6rem;
+  }
+  .proof-dot {
+    display: none;
+  }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .proof-grid,
+  .proof-spotlight,
+  .proof-dot,
+  .proof-aurora,
+  .eyebrow-dot,
+  .eyebrow-shine,
+  .hl-primary,
+  .hl-light,
+  .ribbon-shine,
+  .signature-spark {
+    animation: none !important;
+    transition: none !important;
+  }
+  .proof-metric,
+  .pillar-card {
+    transition: none !important;
+    transform: none !important;
+  }
+  .proof-metric:hover,
+  .pillar-card:hover {
+    transform: none !important;
+  }
+}
