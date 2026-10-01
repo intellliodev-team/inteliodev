@@ -457,8 +457,8 @@ const Contact = () => {
                         {settings ? settings.phone : '+1 (555) 123-4567'}
                       </a>
                     ) : item.key === 'email' ? (
-                      <a href={`mailto:${settings ? settings.email : 'hello@intelliodev.io'}`}>
-                        {settings ? settings.email : 'hello@intelliodev.io'}
+                      <a >
+                        inteliodev@gmail.com
                       </a>
                     ) : (
                       'Mon–Fri · 9AM – 6PM'
