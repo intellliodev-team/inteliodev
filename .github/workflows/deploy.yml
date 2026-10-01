@@ -34,9 +34,7 @@ jobs:
       - name: Build React app
         run: npm run build
 
-      # 🔑 The critical step — copies index.html to 404.html
-      # This makes GitHub Pages serve the SPA shell for any unknown route
-      - name: SPA fallback
+      - name: SPA fallback for routing
         run: cp build/index.html build/404.html
 
       - name: Setup GitHub Pages
