@@ -4,7 +4,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import './BlogDetail.css';
 
-const API_BASE_URL = 'https://inteldev-production.up.railway.app/api';
+const API_BASE_URL = 'https://server-production-5e5d.up.railway.app/api';
 
 const DEFAULT_BLOG_IMAGE = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800"><rect width="1200" height="800" fill="%23F8E8E9"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-weight="bold" font-size="42" fill="%23990011">INTELLIODEV</text></svg>`;
 

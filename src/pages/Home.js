@@ -25,7 +25,7 @@ import Template from '../components/Template';
 import Proof from '../components/Proof';
 
 // Direct API URL
-const API_BASE_URL = 'https://inteldev-production.up.railway.app/api';
+const API_BASE_URL = 'https://server-production-5e5d.up.railway.app/api';
 
 // Fallback projects data
 const FALLBACK_PROJECTS = [

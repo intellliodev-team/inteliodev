@@ -13,7 +13,7 @@ import {
 } from '../utils/animationVariants';
 import './Blogs.css';
 
-const API_BASE_URL = 'https://inteldev-production.up.railway.app/api';
+const API_BASE_URL = 'https://server-production-5e5d.up.railway.app/api';
 
 const DEFAULT_BLOG_IMAGE = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500"><rect width="800" height="500" fill="%23F8E8E9"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-weight="bold" font-size="32" fill="%23990011">INTELLIODEV</text></svg>`;
 

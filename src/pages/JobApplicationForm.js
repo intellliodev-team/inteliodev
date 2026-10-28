@@ -4,7 +4,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import './JobApplicationForm.css';
 
-const API_BASE_URL = 'https://inteldev-production.up.railway.app/api';
+const API_BASE_URL = 'https://server-production-5e5d.up.railway.app/api';
 
 const JobApplicationForm = () => {
   const { slug } = useParams();

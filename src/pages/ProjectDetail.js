@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { renderTechBadge } from '../utils/techIconMap';
 import './ProjectDetail.css';
 
-const API_BASE_URL = 'https://inteldev-production.up.railway.app/api';
+const API_BASE_URL = 'https://server-production-5e5d.up.railway.app/api';
 
 const DEFAULT_PROJECT_IMAGE =
   'data:image/svg+xml;utf8,' +

@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { renderTechBadge } from '../utils/techIconMap';
 import './CaseStudyDetail.css';
 
-const API_BASE_URL = 'https://inteldev-production.up.railway.app/api';
+const API_BASE_URL = 'https://server-production-5e5d.up.railway.app/api';
 
 const getMediaBaseUrl = () => API_BASE_URL.replace('/api', '');
 

@@ -6,7 +6,7 @@ import { servicesData } from '../data/servicesData';
 import logoImg from '../assets/intelidev.png';
 import './Header.css';
 
-const API_BASE_URL = 'https://inteldev-production.up.railway.app/api';
+const API_BASE_URL = 'https://server-production-5e5d.up.railway.app/api';
 
 /* ── Inline SVG icons ─────────────────────────────── */
 const IconCaret = () => (

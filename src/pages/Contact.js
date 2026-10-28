@@ -11,7 +11,7 @@ import {
 } from '../utils/animationVariants';
 import './Contact.css';
 
-const API_BASE_URL = 'https://inteldev-production.up.railway.app/api';
+const API_BASE_URL = 'https://server-production-5e5d.up.railway.app/api';
 
 /* ── Inline SVG Icons ──────────────────────────── */
 const IconPin = () => (

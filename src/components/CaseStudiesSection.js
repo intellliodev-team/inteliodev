@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import './CaseStudiesSection.css';
 
 // Direct API URL without env
-const API_BASE_URL = 'https://inteldev-production.up.railway.app/api';
+const API_BASE_URL = 'https://server-production-5e5d.up.railway.app/api';
 
 // Get the base URL without /api for media
 const getMediaBaseUrl = () => {
